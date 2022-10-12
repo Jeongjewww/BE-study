@@ -1,8 +1,8 @@
 # Zoom Clone Coding
 
 ### 🛠Using...
-NodeJS
-WebSockets
-WebRTC
+- NodeJS  
+- WebSockets  
+- WebRTC  
 
 ### ✨Ref
