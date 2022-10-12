@@ -1,10 +1,14 @@
-## Sign Up & Login 구현
+## Sign Up & Login 페이지 및 기능 구현
+
   
 
 ## 🛠Using...
 - JavaScript ES6  
 - Node.js  
 
+
+## 🏅License
+MIT License
 
 
 ## ✨Ref
