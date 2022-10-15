@@ -1,6 +1,7 @@
 # Zoom Clone Coding
 
 ## 🛠Using...
+- Pug
 - NodeJS  
 - WebSockets  
 - WebRTC  
