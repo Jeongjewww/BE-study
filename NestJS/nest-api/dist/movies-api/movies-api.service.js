@@ -24,10 +24,15 @@ let MoviesApiService = class MoviesApiService {
     }
     deleteOne(id) {
         this.getOne(id);
-        this.movies.filter(movie => movie.id !== +id);
+        this.movies = this.movies.filter(movie => movie.id !== +id);
     }
     create(movieData) {
         this.movies.push(Object.assign({ id: this.movies.length + 1 }, movieData));
+    }
+    update(id, updateData) {
+        const movie = this.getOne(id);
+        this.deleteOne(id);
+        this.movies.push(Object.assign(Object.assign({}, movie), updateData));
     }
 };
 MoviesApiService = __decorate([

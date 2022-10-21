@@ -5,4 +5,5 @@ export declare class MoviesApiService {
     getOne(id: string): Movie;
     deleteOne(id: string): void;
     create(movieData: any): void;
+    update(id: string, updateData: any): void;
 }

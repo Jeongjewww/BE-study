@@ -33,7 +33,7 @@ let MoviesApiController = class MoviesApiController {
         return this.moviesService.deleteOne(movieID);
     }
     path(movieID, updateData) {
-        return Object.assign({ updatedMovie: movieID }, updateData);
+        return this.moviesService.update(movieID, updateData);
     }
 };
 __decorate([

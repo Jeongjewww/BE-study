@@ -34,9 +34,6 @@ export class MoviesApiController {
 
     @Patch("/:id")
     path(@Param("id") movieID: string, @Body() updateData) {
-        return {
-            updatedMovie: movieID,
-            ...updateData,
-        }
+        return this.moviesService.update(movieID, updateData);
     }
 }

@@ -7,5 +7,5 @@ export declare class MoviesApiController {
     getOne(movieID: string): Movie;
     create(movieData: string): void;
     remove(movieID: string): void;
-    path(movieID: string, updateData: any): any;
+    path(movieID: string, updateData: any): void;
 }
