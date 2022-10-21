@@ -18,17 +18,20 @@ let MoviesApiController = class MoviesApiController {
     getAll() {
         return 'This will return all movies';
     }
+    search(searchingYear) {
+        return `We are searching for a movie made after: ${searchingYear}`;
+    }
     getOne(movieID) {
         return `This will return one movie with the id: ${movieID}`;
     }
-    create() {
-        return 'This will create a movie';
+    create(movieData) {
+        return movieData;
     }
     remove(movieID) {
         return `This will delete a movie with the id: ${movieID}`;
     }
-    path(movieID) {
-        return `This will patch a movie with the id: ${movieID}`;
+    path(movieID, updateData) {
+        return Object.assign({ updatedMovie: movieID }, updateData);
     }
 };
 __decorate([
@@ -38,6 +41,13 @@ __decorate([
     __metadata("design:returntype", String)
 ], MoviesApiController.prototype, "getAll", null);
 __decorate([
+    (0, common_1.Get)("search"),
+    __param(0, (0, common_1.Query)("year")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], MoviesApiController.prototype, "search", null);
+__decorate([
     (0, common_1.Get)("/:id"),
     __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
@@ -46,8 +56,9 @@ __decorate([
 ], MoviesApiController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], MoviesApiController.prototype, "create", null);
 __decorate([
@@ -60,8 +71,9 @@ __decorate([
 __decorate([
     (0, common_1.Patch)("/:id"),
     __param(0, (0, common_1.Param)("id")),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], MoviesApiController.prototype, "path", null);
 MoviesApiController = __decorate([
