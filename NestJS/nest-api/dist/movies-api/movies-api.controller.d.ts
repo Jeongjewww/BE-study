@@ -6,6 +6,6 @@ export declare class MoviesApiController {
     getAll(): Movie[];
     getOne(movieID: string): Movie;
     create(movieData: string): void;
-    remove(movieID: string): boolean;
+    remove(movieID: string): void;
     path(movieID: string, updateData: any): any;
 }

@@ -16,11 +16,15 @@ let MoviesApiService = class MoviesApiService {
         return this.movies;
     }
     getOne(id) {
-        return this.movies.find(movie => movie.id === +id);
+        const movie = this.movies.find(movie => movie.id === +id);
+        if (!movie) {
+            throw new common_1.NotFoundException(`Movie with ID ${id} not found.`);
+        }
+        return movie;
     }
     deleteOne(id) {
+        this.getOne(id);
         this.movies.filter(movie => movie.id !== +id);
-        return true;
     }
     create(movieData) {
         this.movies.push(Object.assign({ id: this.movies.length + 1 }, movieData));

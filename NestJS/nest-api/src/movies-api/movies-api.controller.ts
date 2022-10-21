@@ -35,7 +35,7 @@ export class MoviesApiController {
     @Patch("/:id")
     path(@Param("id") movieID: string, @Body() updateData) {
         return {
-            updatedMovie: movieID, 
+            updatedMovie: movieID,
             ...updateData,
         }
     }
