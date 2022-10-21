@@ -1,8 +1,11 @@
+import { Movie } from './entities/movie.entity';
+import { MoviesApiService } from './movies-api.service';
 export declare class MoviesApiController {
-    getAll(): string;
-    search(searchingYear: string): string;
-    getOne(movieID: string): string;
-    create(movieData: string): string;
-    remove(movieID: string): string;
+    private readonly moviesService;
+    constructor(moviesService: MoviesApiService);
+    getAll(): Movie[];
+    getOne(movieID: string): Movie;
+    create(movieData: string): void;
+    remove(movieID: string): boolean;
     path(movieID: string, updateData: any): any;
 }

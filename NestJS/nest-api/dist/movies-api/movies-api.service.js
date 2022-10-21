@@ -6,18 +6,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.MoviesApiService = void 0;
 const common_1 = require("@nestjs/common");
-const movies_api_controller_1 = require("./movies-api/movies-api.controller");
-const movies_api_service_1 = require("./movies-api/movies-api.service");
-let AppModule = class AppModule {
+let MoviesApiService = class MoviesApiService {
+    constructor() {
+        this.movies = [];
+    }
+    getAll() {
+        return this.movies;
+    }
+    getOne(id) {
+        return this.movies.find(movie => movie.id === +id);
+    }
+    deleteOne(id) {
+        this.movies.filter(movie => movie.id !== +id);
+        return true;
+    }
+    create(movieData) {
+        this.movies.push(Object.assign({ id: this.movies.length + 1 }, movieData));
+    }
 };
-AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [],
-        controllers: [movies_api_controller_1.MoviesApiController],
-        providers: [movies_api_service_1.MoviesApiService],
-    })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+MoviesApiService = __decorate([
+    (0, common_1.Injectable)()
+], MoviesApiService);
+exports.MoviesApiService = MoviesApiService;
+//# sourceMappingURL=movies-api.service.js.map
