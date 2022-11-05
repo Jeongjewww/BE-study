@@ -52,7 +52,7 @@ describe('AppController (e2e)', () => {
     });
    });
 
-   describe("/movies-api/:id", () => {
+  describe("/movies-api/:id", () => {
     it("GET 200", () => {
       return request(app.getHttpServer())
         .get("/movies-api/1")
