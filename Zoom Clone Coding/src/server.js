@@ -13,11 +13,11 @@ app.get("/*", (_, res) => res.redirect("/"));
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
-wsServer.on("connection", socket => {
-    socket.on("enter_room", (msg, done) => {
-        console.log(msg);
+wsServer.on("connection", (socket) => {
+    socket.on("enter_room", (roomName, done) => {
+        console.log(roomName);
         setTimeout(() => {
-            done();
+            done("hi from be!");
         }, 10000);
     });
 })
